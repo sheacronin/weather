@@ -1,0 +1,28 @@
+{
+    "name": "weather",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sheacronin/weather.git"
+    },
+    "author": "Shea Cronin",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/sheacronin/weather/issues"
+    },
+    "homepage": "https://github.com/sheacronin/weather#readme",
+    "devDependencies": {
+        "css-loader": "^5.2.2",
+        "eslint": "^7.24.0",
+        "eslint-config-prettier": "^8.2.0",
+        "prettier": "2.2.1",
+        "style-loader": "^2.0.0",
+        "webpack": "^5.33.2",
+        "webpack-cli": "^4.6.0"
+    }
+}
