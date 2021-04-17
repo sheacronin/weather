@@ -56,7 +56,7 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\nconsole.log('Hello world!');\n\n\n//# sourceURL=webpack://weather/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nasync function getWeather(location) {\n    try {\n        const response = await fetch(\n            `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=558df500de211a9bd9d1847f6d74894c`,\n            { mode: 'cors' }\n        );\n        // If 404 error, throw error.\n        if (!response.ok) throw new Error('Network response was not ok');\n        console.log(response);\n\n        const weatherData = await response.json();\n        console.log(weatherData.weather[0]);\n        return weatherData;\n    } catch (error) {\n        console.log(error);\n    }\n}\n\ngetWeather('London,uk');\n\n\n//# sourceURL=webpack://weather/./src/index.js?");
 
 /***/ })
 
