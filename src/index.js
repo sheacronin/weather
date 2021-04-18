@@ -8,14 +8,28 @@ async function getWeather(location) {
         );
         // If 404 error, throw error.
         if (!response.ok) throw new Error('Network response was not ok');
-        console.log(response);
 
         const weatherData = await response.json();
-        console.log(weatherData.weather[0]);
         return weatherData;
     } catch (error) {
         console.log(error);
     }
 }
 
-getWeather('London,uk');
+const weatherFactory = (temp, lowTemp, highTemp, desc) => {
+    return { temp, lowTemp, highTemp, desc };
+};
+
+async function processWeatherData(location) {
+    const data = await getWeather(location);
+    const weather = weatherFactory(
+        data.main.temp,
+        data.main['temp_min'],
+        data.main['temp_max'],
+        data.weather[0].description
+    );
+    console.log(weather);
+    return weather;
+}
+
+processWeatherData('London,uk');
