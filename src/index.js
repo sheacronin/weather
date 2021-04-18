@@ -33,3 +33,10 @@ async function processWeatherData(location) {
 }
 
 processWeatherData('London,uk');
+
+const searchInput = document.querySelector('input');
+const searchBtn = document.querySelector('button');
+
+searchBtn.addEventListener('click', () =>
+    processWeatherData(searchInput.value)
+);
