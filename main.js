@@ -50,13 +50,33 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 
 /***/ }),
 
+/***/ "./src/dom-weather.js":
+/*!****************************!*\
+  !*** ./src/dom-weather.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"updateWeatherInfo\": () => (/* binding */ updateWeatherInfo)\n/* harmony export */ });\nconst weatherInfo = {\n    location: document.querySelector('#location'),\n    icon: document.querySelector('#weather-icon'),\n    temp: document.querySelector('#temp'),\n    highTemp: document.querySelector('#high-temp'),\n    lowTemp: document.querySelector('#low-temp'),\n};\n\nfunction updateWeatherInfo(weatherObj) {\n    weatherInfo.location.textContent = weatherObj.location;\n    weatherInfo.icon.src = '#';\n    weatherInfo.temp.textContent = weatherObj.temp;\n    weatherInfo.highTemp.textContent = weatherObj.highTemp;\n    weatherInfo.lowTemp.textContent = weatherObj.lowTemp;\n}\n\n\n\n\n//# sourceURL=webpack://weather/./src/dom-weather.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nasync function getWeather(location) {\n    try {\n        const response = await fetch(\n            `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=558df500de211a9bd9d1847f6d74894c`,\n            { mode: 'cors' }\n        );\n        // If 404 error, throw error.\n        if (!response.ok) throw new Error('Network response was not ok');\n\n        const weatherData = await response.json();\n        return weatherData;\n    } catch (error) {\n        console.log(error);\n    }\n}\n\nconst weatherFactory = (temp, lowTemp, highTemp, desc) => {\n    return { temp, lowTemp, highTemp, desc };\n};\n\nasync function processWeatherData(location) {\n    const data = await getWeather(location);\n    const weather = weatherFactory(\n        data.main.temp,\n        data.main['temp_min'],\n        data.main['temp_max'],\n        data.weather[0].description\n    );\n    console.log(weather);\n    return weather;\n}\n\nprocessWeatherData('London,uk');\n\nconst searchInput = document.querySelector('input');\nconst searchBtn = document.querySelector('button');\n\nsearchBtn.addEventListener('click', () =>\n    processWeatherData(searchInput.value)\n);\n\n\n//# sourceURL=webpack://weather/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _dom_weather__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dom-weather */ \"./src/dom-weather.js\");\n/* harmony import */ var _weather__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./weather */ \"./src/weather.js\");\n\n\n\n\n(0,_weather__WEBPACK_IMPORTED_MODULE_2__.processWeatherData)('London,uk').then((weather) => {\n    (0,_dom_weather__WEBPACK_IMPORTED_MODULE_1__.updateWeatherInfo)(weather);\n});\n\nconst searchInput = document.querySelector('input');\nconst searchBtn = document.querySelector('button');\n\nsearchBtn.addEventListener('click', () => {\n    (0,_weather__WEBPACK_IMPORTED_MODULE_2__.processWeatherData)(searchInput.value).then((weather) => {\n        (0,_dom_weather__WEBPACK_IMPORTED_MODULE_1__.updateWeatherInfo)(weather);\n    });\n});\n\n\n//# sourceURL=webpack://weather/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/weather.js":
+/*!************************!*\
+  !*** ./src/weather.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"processWeatherData\": () => (/* binding */ processWeatherData)\n/* harmony export */ });\nasync function getWeather(location) {\n    try {\n        const response = await fetch(\n            `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=558df500de211a9bd9d1847f6d74894c`,\n            { mode: 'cors' }\n        );\n        // If 404 error, throw error.\n        if (!response.ok) throw new Error('Network response was not ok');\n\n        const weatherData = await response.json();\n        return weatherData;\n    } catch (error) {\n        console.log(error);\n    }\n}\n\nconst weatherFactory = (location, temp, lowTemp, highTemp, desc) => {\n    return { location, temp, lowTemp, highTemp, desc };\n};\n\nasync function processWeatherData(location) {\n    const data = await getWeather(location);\n    console.log(data);\n    const weather = weatherFactory(\n        data.name,\n        data.main.temp,\n        data.main['temp_min'],\n        data.main['temp_max'],\n        data.weather[0].description\n    );\n    console.log(weather);\n    return weather;\n}\n\n\n\n\n//# sourceURL=webpack://weather/./src/weather.js?");
 
 /***/ })
 
