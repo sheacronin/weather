@@ -14,8 +14,8 @@ async function getWeather(location) {
     }
 }
 
-const weatherFactory = (location, temp, lowTemp, highTemp, desc) => {
-    return { location, temp, lowTemp, highTemp, desc };
+const weatherFactory = (location, temp, lowTemp, highTemp, desc, iconName) => {
+    return { location, temp, lowTemp, highTemp, desc, iconName };
 };
 
 async function processWeatherData(location) {
@@ -26,7 +26,8 @@ async function processWeatherData(location) {
         data.main.temp,
         data.main['temp_min'],
         data.main['temp_max'],
-        data.weather[0].description
+        data.weather[0].description,
+        data.weather[0].main
     );
     console.log(weather);
     return weather;
