@@ -6,16 +6,22 @@
 body {
     background-color: #bde0fe;
     text-align: center;
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 26px;
 }
 
 header {
     width: 100vw;
-    height: 80px;
+    height: 100px;
     background-color: #ffafcc;
+    color: #51355a;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 24px;
+    letter-spacing: 3px;
 }
 
 main {
@@ -26,23 +32,39 @@ main {
     justify-content: center;
 }
 
+main #weather-info,
+main form {
+    box-shadow: -2px 2px 10px #00000030;
+    border-radius: 10px;
+}
+
 #weather-info {
     background-color: #27394990;
     color: white;
     width: 100%;
-    height: 400px;
+    height: 500px;
     margin-bottom: 50px;
     display: grid;
+    grid-template-rows: 2fr 1fr 3fr 2fr 2fr;
     align-items: center;
+}
+
+#location {
+    text-decoration: underline;
 }
 
 #weather-icon {
     margin: 0 auto;
 }
 
+#temp {
+    font-size: 60px;
+}
+
 #high-and-low {
     display: flex;
     justify-content: space-around;
+    font-size: 32px;
 }
 
 input {
@@ -52,6 +74,7 @@ input {
     text-align: center;
     border: none;
     border-radius: 10px 10px 0 0;
+    font-family: 'Lato', sans-serif;
 }
 
 button {
@@ -61,5 +84,6 @@ button {
     border: none;
     border-radius: 0 0 10px 10px;
     background-color: #ffafcc;
+    color: #51355a;
     font-family: 'Fredoka One', cursive;
 }
