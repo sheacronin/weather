@@ -16,7 +16,7 @@
   \*************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"* {\\n    margin: 0;\\n    padding: 0;\\n}\\n\\nbody {\\n    background-color: #bde0fe;\\n    text-align: center;\\n    font-family: 'Fredoka One', cursive;\\n}\\n\\nheader {\\n    width: 100vw;\\n    height: 80px;\\n    background-color: #ffafcc;\\n    display: flex;\\n    align-items: center;\\n    justify-content: center;\\n}\\n\\nmain {\\n    margin: 50px auto;\\n    width: 300px;\\n    display: flex;\\n    flex-direction: column;\\n    justify-content: center;\\n}\\n\\n#weather-info {\\n    background-color: #ffc8dd;\\n    width: 100%;\\n    height: 400px;\\n    margin-bottom: 50px;\\n    display: grid;\\n    align-items: center;\\n}\\n\\n#weather-icon {\\n    margin: 0 auto;\\n}\\n\\n#high-and-low {\\n    display: flex;\\n    justify-content: space-around;\\n}\\n\\ninput {\\n    width: 100%;\\n    height: 40px;\\n    font-size: 20px;\\n    text-align: center;\\n    border: none;\\n    border-radius: 10px 10px 0 0;\\n}\\n\\nbutton {\\n    width: 100%;\\n    height: 40px;\\n    font-size: 20px;\\n    border: none;\\n    border-radius: 0 0 10px 10px;\\n    background-color: #ffafcc;\\n    font-family: 'Fredoka One', cursive;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://weather/./src/style.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"* {\\n    margin: 0;\\n    padding: 0;\\n}\\n\\nbody {\\n    background-color: #bde0fe;\\n    text-align: center;\\n    font-family: 'Fredoka One', cursive;\\n}\\n\\nheader {\\n    width: 100vw;\\n    height: 80px;\\n    background-color: #ffafcc;\\n    display: flex;\\n    align-items: center;\\n    justify-content: center;\\n}\\n\\nmain {\\n    margin: 50px auto;\\n    width: 300px;\\n    display: flex;\\n    flex-direction: column;\\n    justify-content: center;\\n}\\n\\n#weather-info {\\n    background-color: #27394990;\\n    color: white;\\n    width: 100%;\\n    height: 400px;\\n    margin-bottom: 50px;\\n    display: grid;\\n    align-items: center;\\n}\\n\\n#weather-icon {\\n    margin: 0 auto;\\n}\\n\\n#high-and-low {\\n    display: flex;\\n    justify-content: space-around;\\n}\\n\\ninput {\\n    width: 100%;\\n    height: 40px;\\n    font-size: 20px;\\n    text-align: center;\\n    border: none;\\n    border-radius: 10px 10px 0 0;\\n}\\n\\nbutton {\\n    width: 100%;\\n    height: 40px;\\n    font-size: 20px;\\n    border: none;\\n    border-radius: 0 0 10px 10px;\\n    background-color: #ffafcc;\\n    font-family: 'Fredoka One', cursive;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://weather/./src/style.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -56,7 +56,27 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"updateWeatherInfo\": () => (/* binding */ updateWeatherInfo)\n/* harmony export */ });\nconst weatherInfo = {\n    location: document.querySelector('#location'),\n    icon: document.querySelector('#weather-icon'),\n    temp: document.querySelector('#temp'),\n    highTemp: document.querySelector('#high-temp'),\n    lowTemp: document.querySelector('#low-temp'),\n};\n\nfunction updateWeatherInfo(weatherObj) {\n    weatherInfo.location.textContent = weatherObj.location;\n    weatherInfo.icon.src = '#';\n    weatherInfo.temp.textContent = weatherObj.temp;\n    weatherInfo.highTemp.textContent = weatherObj.highTemp;\n    weatherInfo.lowTemp.textContent = weatherObj.lowTemp;\n}\n\n\n\n\n//# sourceURL=webpack://weather/./src/dom-weather.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"updateWeatherInfo\": () => (/* binding */ updateWeatherInfo)\n/* harmony export */ });\n/* harmony import */ var _img_Clouds_gif__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./img/Clouds.gif */ \"./src/img/Clouds.gif\");\n/* harmony import */ var _img_Clear_gif__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./img/Clear.gif */ \"./src/img/Clear.gif\");\n\n\n\nconst icons = {\n    Clouds: _img_Clouds_gif__WEBPACK_IMPORTED_MODULE_0__,\n    Clear: _img_Clear_gif__WEBPACK_IMPORTED_MODULE_1__,\n};\n\nconst weatherInfo = {\n    location: document.querySelector('#location'),\n    desc: document.querySelector('#desc'),\n    icon: document.querySelector('#weather-icon'),\n    temp: document.querySelector('#temp'),\n    highTemp: document.querySelector('#high-temp'),\n    lowTemp: document.querySelector('#low-temp'),\n};\n\nfunction updateWeatherInfo(weatherObj) {\n    weatherInfo.location.textContent = weatherObj.location;\n    weatherInfo.desc.textContent = weatherObj.desc;\n    weatherInfo.icon.src = icons[weatherObj.iconName];\n    weatherInfo.temp.textContent = weatherObj.temp;\n    weatherInfo.highTemp.textContent = weatherObj.highTemp;\n    weatherInfo.lowTemp.textContent = weatherObj.lowTemp;\n}\n\n\n\n\n//# sourceURL=webpack://weather/./src/dom-weather.js?");
+
+/***/ }),
+
+/***/ "./src/img/Clear.gif":
+/*!***************************!*\
+  !*** ./src/img/Clear.gif ***!
+  \***************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"6e4c3a9bc4da94614bd7.gif\";\n\n//# sourceURL=webpack://weather/./src/img/Clear.gif?");
+
+/***/ }),
+
+/***/ "./src/img/Clouds.gif":
+/*!****************************!*\
+  !*** ./src/img/Clouds.gif ***!
+  \****************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"69ba3b64d90d9bb014f0.gif\";\n\n//# sourceURL=webpack://weather/./src/img/Clouds.gif?");
 
 /***/ }),
 
@@ -76,7 +96,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"processWeatherData\": () => (/* binding */ processWeatherData)\n/* harmony export */ });\nasync function getWeather(location) {\n    try {\n        const response = await fetch(\n            `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=558df500de211a9bd9d1847f6d74894c`,\n            { mode: 'cors' }\n        );\n        // If 404 error, throw error.\n        if (!response.ok) throw new Error('Network response was not ok');\n\n        const weatherData = await response.json();\n        return weatherData;\n    } catch (error) {\n        console.log(error);\n    }\n}\n\nconst weatherFactory = (location, temp, lowTemp, highTemp, desc) => {\n    return { location, temp, lowTemp, highTemp, desc };\n};\n\nasync function processWeatherData(location) {\n    const data = await getWeather(location);\n    console.log(data);\n    const weather = weatherFactory(\n        data.name,\n        data.main.temp,\n        data.main['temp_min'],\n        data.main['temp_max'],\n        data.weather[0].description\n    );\n    console.log(weather);\n    return weather;\n}\n\n\n\n\n//# sourceURL=webpack://weather/./src/weather.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"processWeatherData\": () => (/* binding */ processWeatherData)\n/* harmony export */ });\nasync function getWeather(location) {\n    try {\n        const response = await fetch(\n            `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=558df500de211a9bd9d1847f6d74894c`,\n            { mode: 'cors' }\n        );\n        // If 404 error, throw error.\n        if (!response.ok) throw new Error('Network response was not ok');\n\n        const weatherData = await response.json();\n        return weatherData;\n    } catch (error) {\n        console.log(error);\n    }\n}\n\nconst weatherFactory = (location, temp, lowTemp, highTemp, desc, iconName) => {\n    return { location, temp, lowTemp, highTemp, desc, iconName };\n};\n\nasync function processWeatherData(location) {\n    const data = await getWeather(location);\n    console.log(data);\n    const weather = weatherFactory(\n        data.name,\n        data.main.temp,\n        data.main['temp_min'],\n        data.main['temp_max'],\n        data.weather[0].description,\n        data.weather[0].main\n    );\n    console.log(weather);\n    return weather;\n}\n\n\n\n\n//# sourceURL=webpack://weather/./src/weather.js?");
 
 /***/ })
 
@@ -131,6 +151,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -145,6 +177,26 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
