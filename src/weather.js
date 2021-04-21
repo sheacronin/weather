@@ -18,16 +18,15 @@ class Weather {
     constructor(location, temp, lowTemp, highTemp, desc, iconName) {
         this.tempUnit = 'F';
         this.temp = {
-            //k: Math.round(temp),
-            f: Math.round(((temp - 273.15) * 9) / 5 + 32),
-            c: Math.round(temp - 273.15),
+            main: {
+                f: Math.round(((temp - 273.15) * 9) / 5 + 32),
+                c: Math.round(temp - 273.15),
+            },
             low: {
-                //k: Math.round(lowTemp),
                 f: Math.round(((lowTemp - 273.15) * 9) / 5 + 32),
                 c: Math.round(lowTemp - 273.15),
             },
             high: {
-                //k: Math.round(highTemp),
                 f: Math.round(((highTemp - 273.15) * 9) / 5 + 32),
                 c: Math.round(highTemp - 273.15),
             },

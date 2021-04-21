@@ -13,8 +13,12 @@ function animateUnitToggleBtn() {
     // Clear current class.
     unitToggleBtn.className = '';
     unitToggleBtn.classList.add(newCls);
+
+    const newUnit = newCls === 'fahrenheit' ? 'F' : 'C';
     // Change text content for new unit.
-    unitToggleBtn.textContent = newCls === 'fahrenheit' ? 'F' : 'C';
+    unitToggleBtn.textContent = newUnit;
+
+    weatherInfo.temp.displayTemperature(null, newUnit);
 }
 
 const icons = {
@@ -26,24 +30,30 @@ const weatherInfo = {
     location: document.querySelector('#location'),
     desc: document.querySelector('#desc'),
     icon: document.querySelector('#weather-icon'),
-    temp: document.querySelector('#temp'),
-    highTemp: document.querySelector('#high-temp'),
-    lowTemp: document.querySelector('#low-temp'),
+    temp: {
+        main: document.querySelector('#temp'),
+        high: document.querySelector('#high-temp'),
+        low: document.querySelector('#low-temp'),
+
+        displayTemperature(temp, unit) {
+            for (const tempType in this) {
+                // Don't include methods.
+                if (typeof this[tempType] == 'function') {
+                    continue;
+                }
+                this[tempType].querySelector('.degrees-num').textContent =
+                    temp[tempType][unit.toLowerCase()];
+                this[tempType].querySelector('.degrees-unit').textContent =
+                    '°' + unit;
+            }
+        },
+    },
+    update(weather) {
+        this.location.textContent = weather.location;
+        this.desc.textContent = weather.desc;
+        this.icon.src = icons[weather.iconName];
+        this.temp.displayTemperature(weather.temp, 'F');
+    },
 };
 
-function displayTemperature(tempType, temp, unit) {
-    weatherInfo[tempType].querySelector('.degrees-num').textContent = temp;
-    weatherInfo[tempType].querySelector('.degrees-unit').textContent =
-        '°' + unit;
-}
-
-function updateWeatherInfo(weatherObj) {
-    weatherInfo.location.textContent = weatherObj.location;
-    weatherInfo.desc.textContent = weatherObj.desc;
-    weatherInfo.icon.src = icons[weatherObj.iconName];
-    displayTemperature('temp', weatherObj.temp.f, 'F');
-    displayTemperature('highTemp', weatherObj.temp.high.f, 'F');
-    displayTemperature('lowTemp', weatherObj.temp.low.f, 'F');
-}
-
-export { updateWeatherInfo };
+export { weatherInfo };
