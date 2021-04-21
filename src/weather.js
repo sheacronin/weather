@@ -37,10 +37,15 @@ class Weather {
         // Set the icon name based on the icon code provided by the API.
         this.iconName = ((code) => {
             console.log(code);
-            if (code.match(/01[dn]/)) {
+            code = '02n';
+            if (code.match(/01d/)) {
                 return 'clear';
-            } else if (code.match(/02[dn]/)) {
+            } else if (code.match(/01n/)) {
+                return 'moon';
+            } else if (code.match(/02d/)) {
                 return 'fewClouds';
+            } else if (code.match(/02n/)) {
+                return 'moonClouds';
             } else if (code.match(/0[34][dn]/)) {
                 return 'clouds';
             } else if (code.match(/09|10[dn]/)) {

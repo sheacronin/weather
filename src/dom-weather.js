@@ -1,5 +1,7 @@
 import clear from './img/clear.gif';
+import moon from './img/moon.gif';
 import fewClouds from './img/few-clouds.gif';
+import moonClouds from './img/moon-clouds.gif';
 import clouds from './img/clouds.gif';
 import rain from './img/rain.gif';
 import storm from './img/storm.gif';
@@ -8,7 +10,9 @@ import mist from './img/mist.gif';
 
 const icons = {
     clear,
+    moon,
     fewClouds,
+    moonClouds,
     clouds,
     rain,
     storm,
