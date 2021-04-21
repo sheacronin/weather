@@ -7,7 +7,7 @@ processWeatherData('London,uk').then((weather) => {
 });
 
 const searchInput = document.querySelector('input');
-const searchBtn = document.querySelector('button');
+const searchBtn = document.querySelector('#search-btn');
 
 searchBtn.addEventListener('click', (e) => {
     processWeatherData(searchInput.value).then((weather) => {

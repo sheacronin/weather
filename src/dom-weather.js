@@ -1,6 +1,22 @@
 import Clouds from './img/Clouds.gif';
 import Clear from './img/Clear.gif';
 
+const unitToggleBtn = document.querySelector('#unit-toggle');
+unitToggleBtn.addEventListener('click', animateUnitToggleBtn);
+
+function animateUnitToggleBtn() {
+    console.log('moving button...');
+    // Determine new class.
+    const newCls = unitToggleBtn.classList.contains('fahrenheit')
+        ? 'celsius'
+        : 'fahrenheit';
+    // Clear current class.
+    unitToggleBtn.className = '';
+    unitToggleBtn.classList.add(newCls);
+    // Change text content for new unit.
+    unitToggleBtn.textContent = newCls === 'fahrenheit' ? 'F' : 'C';
+}
+
 const icons = {
     Clouds: Clouds,
     Clear: Clear,

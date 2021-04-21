@@ -50,7 +50,7 @@ main form {
     position: relative;
 }
 
-#unit-toggle {
+#unit-toggle-container {
     position: absolute;
     top: 8px;
     right: 8px;
@@ -60,18 +60,26 @@ main form {
     border-radius: 20px;
 }
 
-#unit-circle {
+#unit-toggle {
     background-color: #cdb4db;
     height: 30px;
     width: 30px;
     border-radius: 50%;
     position: absolute;
-    left: 0;
     font-weight: 400;
     font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: left 500ms ease-in-out;
+}
+
+.fahrenheit {
+    left: 0;
+}
+
+.celsius {
+    left: 20px;
 }
 
 #location {
