@@ -57,6 +57,10 @@ main form {
     margin: 0 auto;
 }
 
+.temp-div {
+    position: relative;
+}
+
 #temp {
     font-size: 60px;
 }
@@ -64,7 +68,21 @@ main form {
 #high-and-low {
     display: flex;
     justify-content: space-around;
-    font-size: 32px;
+    font-size: 40px;
+}
+
+.degrees-unit {
+    position: absolute;
+}
+
+#temp .degrees-unit {
+    top: 5px;
+    font-size: 30px;
+}
+
+#high-and-low .degrees-unit {
+    font-size: 20px;
+    top: 2px;
 }
 
 input {
