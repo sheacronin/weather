@@ -15,7 +15,7 @@ async function getWeather(location) {
 }
 
 class Weather {
-    constructor(location, country, temp, lowTemp, highTemp, desc, iconName) {
+    constructor(location, country, temp, lowTemp, highTemp, desc, iconCode) {
         this.tempUnit = 'F';
         this.temp = {
             main: {
@@ -34,7 +34,25 @@ class Weather {
         this.location = location;
         this.country = country;
         this.desc = desc;
-        this.iconName = iconName;
+        // Set the icon name based on the icon code provided by the API.
+        this.iconName = ((code) => {
+            console.log(code);
+            if (code.match(/01[dn]/)) {
+                return 'clear';
+            } else if (code.match(/02[dn]/)) {
+                return 'fewClouds';
+            } else if (code.match(/0[34][dn]/)) {
+                return 'clouds';
+            } else if (code.match(/09|10[dn]/)) {
+                return 'rain';
+            } else if (code.match(/11[dn]/)) {
+                return 'storm';
+            } else if (code.match(/13[dn]/)) {
+                return 'snow';
+            } else if (code.match(/50[dn]/)) {
+                return 'mist';
+            }
+        })(iconCode);
     }
     convertTemp(newUnit) {
         switch (this.tempUnit) {
@@ -62,7 +80,7 @@ async function processWeatherData(location) {
         data.main['temp_min'],
         data.main['temp_max'],
         data.weather[0].description,
-        data.weather[0].main
+        data.weather[0].icon
     );
     console.log(weather);
     return weather;

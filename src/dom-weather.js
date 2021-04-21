@@ -1,5 +1,20 @@
-import Clouds from './img/Clouds.gif';
-import Clear from './img/Clear.gif';
+import clear from './img/clear.gif';
+import fewClouds from './img/few-clouds.gif';
+import clouds from './img/clouds.gif';
+import rain from './img/rain.gif';
+import storm from './img/storm.gif';
+import snow from './img/snow.gif';
+import mist from './img/mist.gif';
+
+const icons = {
+    clear,
+    fewClouds,
+    clouds,
+    rain,
+    storm,
+    snow,
+    mist,
+};
 
 const unitToggleBtn = document.querySelector('#unit-toggle');
 unitToggleBtn.addEventListener('click', animateUnitToggleBtn);
@@ -20,11 +35,6 @@ function animateUnitToggleBtn() {
 
     weatherInfo.temp.displayTemperature(weatherInfo.data.temp, newUnit);
 }
-
-const icons = {
-    Clouds: Clouds,
-    Clear: Clear,
-};
 
 const weatherInfo = {
     location: document.querySelector('#location'),
