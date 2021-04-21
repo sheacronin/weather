@@ -15,7 +15,7 @@ async function getWeather(location) {
 }
 
 class Weather {
-    constructor(location, temp, lowTemp, highTemp, desc, iconName) {
+    constructor(location, country, temp, lowTemp, highTemp, desc, iconName) {
         this.tempUnit = 'F';
         this.temp = {
             main: {
@@ -32,6 +32,7 @@ class Weather {
             },
         };
         this.location = location;
+        this.country = country;
         this.desc = desc;
         this.iconName = iconName;
     }
@@ -56,6 +57,7 @@ async function processWeatherData(location) {
     console.log(data);
     const weather = new Weather(
         data.name,
+        data.sys.country,
         data.main.temp,
         data.main['temp_min'],
         data.main['temp_max'],

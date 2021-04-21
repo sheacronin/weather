@@ -45,9 +45,21 @@ main form {
     height: 500px;
     margin-bottom: 50px;
     display: grid;
-    grid-template-rows: 2fr 1fr 3fr 2fr 2fr;
+    grid-template-rows: 3fr 1fr 3fr 3fr 2fr;
     align-items: center;
     position: relative;
+}
+
+#country {
+    position: absolute;
+    font-size: 18px;
+    opacity: 50%;
+    top: 6px;
+    left: 12px;
+    width: 50px;
+    height: 30px;
+    display: flex;
+    align-items: center;
 }
 
 #unit-toggle-container {
@@ -84,6 +96,7 @@ main form {
 
 #location {
     text-decoration: underline;
+    align-self: end;
 }
 
 #weather-icon {
@@ -96,12 +109,14 @@ main form {
 
 #temp {
     font-size: 60px;
+    align-self: start;
 }
 
 #high-and-low {
     display: flex;
     justify-content: space-around;
     font-size: 40px;
+    align-self: start;
 }
 
 .degrees-unit {

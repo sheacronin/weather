@@ -28,6 +28,7 @@ const icons = {
 
 const weatherInfo = {
     location: document.querySelector('#location'),
+    country: document.querySelector('#country'),
     desc: document.querySelector('#desc'),
     icon: document.querySelector('#weather-icon'),
     temp: {
@@ -51,6 +52,13 @@ const weatherInfo = {
     data: undefined,
     update(weather) {
         this.location.textContent = weather.location;
+        // Add country flag emoji and acronym.
+        this.country.textContent =
+            weather.country.replace(/./g, (char) =>
+                String.fromCodePoint(char.charCodeAt(0) + 127397)
+            ) +
+            ' ' +
+            weather.country;
         this.desc.textContent = weather.desc;
         this.icon.src = icons[weather.iconName];
         this.temp.displayTemperature(weather.temp, 'F');
