@@ -18,7 +18,7 @@ function animateUnitToggleBtn() {
     // Change text content for new unit.
     unitToggleBtn.textContent = newUnit;
 
-    weatherInfo.temp.displayTemperature(null, newUnit);
+    weatherInfo.temp.displayTemperature(weatherInfo.data.temp, newUnit);
 }
 
 const icons = {
@@ -48,11 +48,13 @@ const weatherInfo = {
             }
         },
     },
+    data: undefined,
     update(weather) {
         this.location.textContent = weather.location;
         this.desc.textContent = weather.desc;
         this.icon.src = icons[weather.iconName];
         this.temp.displayTemperature(weather.temp, 'F');
+        this.data = weather;
     },
 };
 
