@@ -6,7 +6,7 @@ async function getWeather(location) {
         errorLog.clear();
 
         const response = await fetch(
-            `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=558df500de211a9bd9d1847f6d74894c`,
+            `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=558df500de211a9bd9d1847f6d74894c`,
             { mode: 'cors' }
         );
         // If 404 error, throw error.

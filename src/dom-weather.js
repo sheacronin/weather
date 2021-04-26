@@ -24,7 +24,6 @@ const unitToggleBtn = document.querySelector('#unit-toggle');
 unitToggleBtn.addEventListener('click', animateUnitToggleBtn);
 
 function animateUnitToggleBtn() {
-    console.log('moving button...');
     // Determine new class.
     const newCls = unitToggleBtn.classList.contains('fahrenheit')
         ? 'celsius'
