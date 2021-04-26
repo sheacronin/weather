@@ -1,5 +1,10 @@
+import { errorLog } from './dom-weather';
+
 async function getWeather(location) {
     try {
+        // Clear error log.
+        errorLog.clear();
+
         const response = await fetch(
             `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=558df500de211a9bd9d1847f6d74894c`,
             { mode: 'cors' }
@@ -11,6 +16,8 @@ async function getWeather(location) {
         return weatherData;
     } catch (error) {
         console.log(error);
+        errorLog.display(location);
+        return error;
     }
 }
 
@@ -36,8 +43,6 @@ class Weather {
         this.desc = desc;
         // Set the icon name based on the icon code provided by the API.
         this.iconName = ((code) => {
-            console.log(code);
-            code = '02n';
             if (code.match(/01d/)) {
                 return 'clear';
             } else if (code.match(/01n/)) {
@@ -77,7 +82,6 @@ class Weather {
 
 async function processWeatherData(location) {
     const data = await getWeather(location);
-    console.log(data);
     const weather = new Weather(
         data.name,
         data.sys.country,

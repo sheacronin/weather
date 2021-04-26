@@ -80,4 +80,17 @@ const weatherInfo = {
     },
 };
 
-export { weatherInfo };
+const errorLog = {
+    el: document.querySelector('#errors'),
+    display(input) {
+        this.el.classList.add('enter-error');
+        this.el.textContent = `Could not find the location "${input}"`;
+    },
+    clear() {
+        console.log('clearing errors!');
+        this.el.textContent = '';
+        this.el.classList.remove('enter-error');
+    },
+};
+
+export { weatherInfo, errorLog };

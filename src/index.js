@@ -10,9 +10,12 @@ const searchInput = document.querySelector('input');
 const searchBtn = document.querySelector('#search-btn');
 
 searchBtn.addEventListener('click', (e) => {
-    processWeatherData(searchInput.value).then((weather) => {
-        weatherInfo.update(weather);
-    });
+    processWeatherData(searchInput.value)
+        .then((weather) => {
+            weatherInfo.update(weather);
+        })
+        .catch(console.log);
+
     searchInput.value = '';
     e.preventDefault();
 });
