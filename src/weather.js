@@ -23,7 +23,6 @@ async function getWeather(location) {
 
 class Weather {
     constructor(location, country, temp, lowTemp, highTemp, desc, iconCode) {
-        this.tempUnit = 'F';
         this.temp = {
             main: {
                 f: Math.round(((temp - 273.15) * 9) / 5 + 32),
@@ -63,20 +62,6 @@ class Weather {
                 return 'mist';
             }
         })(iconCode);
-    }
-    convertTemp(newUnit) {
-        switch (this.tempUnit) {
-            case 'F':
-                this.temp.k = ((this.temp.k - 32) * 5) / 9;
-                break;
-            case 'C':
-                this.temp.k = (this.temp.k * 9) / 5 + 32;
-                break;
-            default:
-                console.log('Invalid temperature unit.');
-        }
-        this.tempUnit = newUnit;
-        return this.temp.k;
     }
 }
 
