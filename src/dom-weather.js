@@ -20,24 +20,27 @@ const icons = {
     mist,
 };
 
-const unitToggleBtn = document.querySelector('#unit-toggle');
-unitToggleBtn.addEventListener('click', animateUnitToggleBtn);
+const tempUnits = {
+    button: document.querySelector('#unit-toggle'),
+    activeUnit: 'F',
+    animateBtn() {
+        this._toggleActiveUnit();
 
-function animateUnitToggleBtn() {
-    // Determine new class.
-    const newCls = unitToggleBtn.classList.contains('fahrenheit')
-        ? 'celsius'
-        : 'fahrenheit';
-    // Clear current class.
-    unitToggleBtn.className = '';
-    unitToggleBtn.classList.add(newCls);
+        this.button.className = '';
+        const newCls = this.activeUnit === 'F' ? 'fahrenheit' : 'celsius';
+        this.button.classList.add(newCls);
 
-    const newUnit = newCls === 'fahrenheit' ? 'F' : 'C';
-    // Change text content for new unit.
-    unitToggleBtn.textContent = newUnit;
+        this.button.textContent = this.activeUnit;
 
-    weatherInfo.temp.displayTemperature(weatherInfo.data.temp, newUnit);
-}
+        // Display temperature in new units.
+        weatherInfo.temp.display();
+    },
+    _toggleActiveUnit() {
+        this.activeUnit = this.activeUnit === 'F' ? 'C' : 'F';
+    },
+};
+
+tempUnits.button.addEventListener('click', () => tempUnits.animateBtn());
 
 const weatherInfo = {
     location: document.querySelector('#location'),
@@ -48,21 +51,22 @@ const weatherInfo = {
         main: document.querySelector('#temp'),
         high: document.querySelector('#high-temp'),
         low: document.querySelector('#low-temp'),
-
-        displayTemperature(temp, unit) {
+        display() {
             for (const tempType in this) {
-                // Don't include methods.
-                if (typeof this[tempType] == 'function') {
+                // Only include element properties.
+                if (tempType === 'display' || tempType === 'data') {
                     continue;
                 }
-                this[tempType].querySelector('.degrees-num').textContent =
-                    temp[tempType][unit.toLowerCase()];
+                this[tempType].querySelector(
+                    '.degrees-num'
+                ).textContent = this.data[tempType][
+                    tempUnits.activeUnit.toLowerCase()
+                ];
                 this[tempType].querySelector('.degrees-unit').textContent =
-                    '°' + unit;
+                    '°' + tempUnits.activeUnit;
             }
         },
     },
-    data: undefined,
     update(weather) {
         this.location.textContent = weather.location;
         // Add country flag emoji and acronym.
@@ -74,8 +78,9 @@ const weatherInfo = {
             weather.country;
         this.desc.textContent = weather.desc;
         this.icon.src = icons[weather.iconName];
-        this.temp.displayTemperature(weather.temp, 'F');
-        this.data = weather;
+        // Store temperature data inside temp object.
+        this.temp.data = weather.temp;
+        this.temp.display();
     },
 };
 
@@ -86,7 +91,6 @@ const errorLog = {
         this.el.textContent = `Could not find the location "${input}"`;
     },
     clear() {
-        console.log('clearing errors!');
         this.el.textContent = '';
         this.el.classList.remove('enter-error');
     },
